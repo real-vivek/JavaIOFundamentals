@@ -28,6 +28,7 @@ public class ZipOutputStreamExample {
 			IntStream.range(0, 100).forEach(i -> {
 				try {
 					// If we have only writeInt then each byte is 4 byte as size of int is 4 byte
+					System.out.println("Adding following integer: "+i);
 					dataOutputStream.writeInt(i);
 				} catch (IOException e) {
 					e.printStackTrace();
