@@ -14,6 +14,10 @@ public class Employee {
 	private long salary;
 	private String department;
 	
+	public Employee() {
+		super();
+	}
+
 	public Employee(String name, int age, long salary, String department) {
 		super();
 		this.name = name;
@@ -27,7 +31,7 @@ public class Employee {
 	}
 	
 	//Set different key name while serializing in JSON
-	@JsonProperty(value = "NAME")
+	@JsonProperty(value = "firstName")
 	public void setName(String name) {
 		this.name = name;
 	}

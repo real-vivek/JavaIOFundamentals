@@ -1,22 +1,24 @@
 package com.real.vivek.json.fundamentals;
 
-import java.io.File;
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.real.vivek.dto.Employee;
 
-public class JSONMarhallingExample {
+public class JSONUnMarhallingExample {
 
 	public static void main(String[] args) {
-		Employee employee1 = new Employee("emp1", 21, 150000, null);
 		ObjectMapper mapper = new ObjectMapper();
-		File file = new File("json/employeeJSON.txt");
-		try (PrintWriter printWriter = new PrintWriter(file);){
-			String employeeJSONString = mapper.writeValueAsString(employee1);
-			printWriter.write(employeeJSONString);
+		Path path = Paths.get("json/employeeJSON.txt");
+		try (BufferedReader bufferedReader = Files.newBufferedReader(path);) {
+			String line = bufferedReader.readLine();
+			Employee readValue = mapper.readValue(line, Employee.class);
+			System.out.println(readValue);
 		} catch (JsonProcessingException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
