@@ -1,5 +1,7 @@
 package com.real.vivek.dto;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -7,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 //Include.NON_NULL Indicates that only non-null properties should be serialized.
 //Include.NON_EMPTY Indicates that only non-null and non-empty properties should be serialized. This is actually the superset of Include.NON_NULL
 @JsonInclude(value = Include.NON_NULL)
+@XmlRootElement
 public class Employee {
 	
 	private String name;
