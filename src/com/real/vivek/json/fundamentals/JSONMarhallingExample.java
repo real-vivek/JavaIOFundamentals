@@ -7,7 +7,7 @@ import com.real.vivek.dto.Employee;
 public class JSONMarhallingExample {
 
 	public static void main(String[] args) {
-		Employee employee1 = new Employee("emp1", 21, 150000, "Workflow");
+		Employee employee1 = new Employee("emp1", 21, 150000, null);
 		ObjectMapper mapper = new ObjectMapper();
 		try {
 			String employeeJSONString = mapper.writeValueAsString(employee1);
